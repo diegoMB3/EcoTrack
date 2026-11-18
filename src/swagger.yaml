@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: EcoTrack API - Documentación de Optimización
+  version: 1.0.0
+  description: API REST para monitoreo de huella de carbono con compresión GZIP/Brotli y Helmet habilitado.
+paths:
+  /api/activities:
+    get:
+      summary: Obtiene todas las actividades registradas
+      responses:
+        '200':
+          description: Lista de actividades enviada con compresión GZIP
+    post:
+      summary: Registra una nueva actividad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                category:
+                  type: string
+                carbonKg:
+                  type: number
+      responses:
+        '201':
+          description: Actividad creada exitosamente
